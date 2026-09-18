@@ -1,0 +1,731 @@
+
+.side_wrap{
+    
+    margin: 30px 25px 30px 30px;
+    
+
+    .login_join{
+        width: 300px;
+        height: 300px;
+
+        padding: 20px;
+        
+        background-color: #fff9a9;
+
+
+        // 가로 파란줄
+        background-image:
+            linear-gradient(
+                to bottom,
+                #fff9a9 0px,
+                #fff9a9 55px,
+                transparent 55px
+            ),
+
+            repeating-linear-gradient(
+                to bottom,
+                transparent 0px,
+                transparent 27px,
+                rgba(66, 135, 245, 0.35) 28px,
+                transparent 29px
+            );
+        
+        box-shadow: 
+            0 4px 6px rgba(0,0,0,0.07),
+            0 10px 20px rgba(0,0,0,0.05);
+        
+        border-radius: 2px;
+        position: relative;
+
+        // 세로 빨간줄
+        &::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 75px;
+
+            width: 2px;
+            height: 100%;
+
+            background: rgba(255, 80, 80, 0.5);
+        }
+
+        // 클립 몸체
+        .clip{
+            position: absolute;
+
+            top: -60px;
+            left: 50px;
+
+            width: 42px;
+            height: 90px;
+
+            transform: rotate(180deg);
+
+            z-index: 20;
+
+            // 큰 고리
+            &::before{
+                content: '';
+                position: absolute;
+
+                width: 80%;
+                height: 50%;
+                top: 25px;
+                left: 10px;
+
+                border: 5px solid #77BEF0;
+                border-top: none;
+
+                border-radius: 0 0 24px 24px;
+                box-sizing: border-box;
+                background: transparent;
+
+                box-shadow:
+                    inset 0 0 2px rgba(255,255,255,0.5),
+                    1px 2px 4px rgba(52, 122, 179, 0.15);
+                    
+                // 왼쪽 부분만 줄이기
+                clip-path: polygon(
+                    20% 30%,
+                    100% 0,
+                    100% 100%,
+                    0 100%,
+                    30% 30%
+                );
+            }
+
+            // 안쪽 작은 고리
+            &::after{
+                content: '';
+                position: absolute;
+
+                top: -50px;
+                left: 20px;
+
+                width: 24px;
+                height: 80px;
+
+                border: 5px solid #77BEF0;
+                border-top: none;
+
+                border-radius: 0 0 18px 18px;
+
+                transform: rotate(180deg);
+                box-sizing: border-box;
+
+                background: transparent;
+
+                box-shadow:
+                    inset 0 0 2px rgba(255,255,255,0.5),
+                    1px 2px 4px rgba(52, 122, 179, 0.15);
+            }
+        }
+        
+        .id_picture{
+            position: relative;
+            width: 135px;
+            height: 165px;
+            margin: -3px 5px 5px 10px;
+
+            background-image: url('/assets/img/기본_프로필.png');
+            background-size: cover;
+            background-position: center;
+
+            border: 6px solid white;
+            border-radius: 2px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+
+            z-index: 2;
+        }
+
+        .username_sticker{
+            position: absolute;
+            top: 35px;
+            left: 155px;
+
+            padding: 8px 18px;
+
+            background: white;
+            border-radius: 5px;
+
+            border-bottom: 3px solid #e74c3c;
+
+            font-family: 'Griun';
+            font-size: 15px;
+            font-weight: 600;
+            color: #2A2C30;
+
+            box-shadow: 0 2px 5px rgba(0,0,0,0.12);
+
+            transform: rotate(-2deg);
+            z-index: 3;
+        }
+
+        .login_btn,
+        .join_btn{
+            position: absolute;
+
+            text-decoration: none;
+
+            font-family: 'Griun';
+            font-size: 23px;
+            color: #2b2b2b;
+
+            padding: 4px 10px;
+
+            transition: 0.2s ease;
+
+            z-index: 3;
+
+            // 형광펜 숨겨놓기
+            &::before{
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 4px;
+
+                width: 0%;
+                height: 12px;
+
+                z-index: -1;
+
+                transition: width 0.25s ease;
+            }
+
+            // hover 시 형광펜 슥 칠해지는 느낌
+            &:hover::before{
+                width: 100%;
+            }
+        }
+
+        .login_btn{
+            top: 95px;
+            left: 200px;
+            &::before{
+                background: rgba(255, 214, 102, 0.8);
+            }
+        }
+        .join_btn{
+            top: 150px;
+            left: 200px;
+            &::before{
+                background: rgba(255, 183, 197, 0.75);
+            }
+        }
+
+        .login_memo{
+            position: absolute;
+            left: 87px;
+            bottom: 8px;
+
+            font-family: 'Griun';
+            font-size: 15px;
+            line-height: 1.9;
+            color: #4b4b4b;
+
+            transform: rotate(-1deg);
+
+            letter-spacing: 0.3px;
+        }
+
+
+    .post_count{
+        position: relative;
+        margin: 0;
+        top: -113px;
+        left: 185px;
+        width: 100px;
+
+        font-family: 'Griun';
+        font-size: 15px;
+        line-height: 1.8;
+        color: #2A2C30;
+        letter-spacing: 0.3px;
+
+        transform: rotate(-0.4deg);
+        &::before{
+            content: '';
+
+            position: absolute;
+            top: 8px;
+            left: -4px;
+            width: 103px;
+            height: 12px;
+
+            background: rgba(255, 183, 197, 0.75);
+
+            z-index: -1;
+
+            transform: rotate(-1deg);
+        }
+    }
+    .last_post_date{
+        position: relative;
+        margin: 0;
+        top: -107px;
+        left: 185px;
+        width: 120px;
+
+        font-family: 'Griun';
+        font-size: 15px;
+        line-height: 1.8;
+        color: #2A2C30;
+        letter-spacing: 0.3px;
+
+        transform: rotate(-0.4deg);
+        &::before{
+            content: '';
+
+            position: absolute;
+            top: 8px;
+            left: -4px;
+            width: 100px;
+            height: 12px;
+
+            background: rgba(255, 183, 197, 0.75);
+            
+
+            z-index: -1;
+
+            transform: rotate(-1deg);
+        }
+    }
+
+    .recent_palette{
+        position: absolute;
+        top: 210px;
+        left: 90px;
+
+        padding: 15px 15px;
+
+        background: #FBFBFB;
+
+        border: 1px solid rgba(0,0,0,0.06);
+
+        box-shadow:
+            0 2px 3px rgba(0,0,0,0.08);
+
+        transform: rotate(-4deg);
+
+        border-radius: 5px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center; // 가운데 정렬
+
+        p{
+            margin: 0 0 10px 0;
+
+            font-family: 'Griun';
+            font-size: 14px;
+            color: #2A2C30;
+
+            text-align: center;
+        }
+    }
+    .palette_colors{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        z-index: 5;
+    }
+    .palette_circle{
+        width: 32px;
+        height: 20px;
+
+        border-radius: 5px;
+
+
+        transition: 0.2s ease;
+        cursor: pointer;
+        z-index: 3;
+
+        &:hover{
+            transform: scale(1.15);
+        }
+    }
+    
+
+    .mylog_btn{
+        position: relative;
+        top: -50px;
+        left: 210px;
+        display: block;
+        width: 100px;
+
+        background: #C2F0FC;
+        padding: 15px 15px;
+
+        border-radius: 5px;
+
+        border: 1px solid rgba(0,0,0,0.06);
+        box-shadow: 0 2px 3px rgba(0,0,0,0.08);
+
+        text-align: center;
+        text-decoration: none;
+        font-family: 'Griun';
+        font-size: 14px;
+        color: #2A2C30;
+
+        transform: rotate(5deg);
+        transition: 0.2s ease;
+        z-index: 3;
+
+        &:hover{
+            transform: scale(1.07);
+        }
+    }
+
+    .setting{
+        position: relative;
+        cursor: pointer;
+        margin: 0;
+        top: -112px;
+        left: -10px;
+
+        font-family: 'Griun';
+        font-size: 15px;
+        color: #666;
+        transition: 0.2s;
+        &:hover{
+            color: #222;
+        }
+    }
+    a:last-child{
+        position: relative;
+        margin: 0;
+        top: -107px;
+        left: -10px;
+
+        font-family: 'Griun';
+        font-size: 15px;
+        color: #666;
+
+        text-decoration: none;
+
+        transition: 0.2s;
+    }
+    a:last-child:hover{
+        color: #222;
+    }
+    }
+
+
+
+
+
+
+    .write_container{
+    position: relative;
+    height: 133px;
+
+    margin: 20px 0;
+    padding: 20px 20px;
+
+    background: #fff8dc;
+
+    overflow: hidden;
+
+    // 연필 낙서 느낌 배경
+    &::before{
+        content: '╰─..★.───────────────╯';
+
+        position: absolute;
+        right: 210px;
+        top: 146px;
+
+        width: 120px;
+        height: 2px;
+        color: rgba(255, 123, 0, 0.308);
+    }
+
+    &::after{
+        content: '╭───────────────.★..─╮';
+
+        position: absolute;
+        top: 2px;
+        left: 10px;
+
+        width: 120px;
+        height: 2px;
+        color: rgba(255, 123, 0, 0.308);
+    }
+
+    .writetitle{
+        text-align: center;
+
+        margin-bottom: 18px;
+
+        font-family: 'Griun';
+        font-size: 18px;
+        color: #222;
+
+        transform: rotate(-1deg);
+
+        letter-spacing: 2px;
+
+        position: relative;
+        display: inline-block;
+        left: 50%;
+
+        transform:
+            translateX(-50%)
+            rotate(-1deg);
+
+        &::before{
+            content: '';
+            position: absolute;
+            inset: -8px -16px;
+
+            border: 1px solid rgba(255, 123, 0, 0.247);
+
+            border-radius: 50%;
+
+            transform: rotate(-6deg);
+        }
+    }
+
+    .write_contain{
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .private_btn,
+    .share_btn,
+    .open_btn{
+        position: relative;
+        display: inline-block;
+        top: 8px;
+        margin: 0 18px;
+
+        text-decoration: none;
+        font-family: 'Griun';
+        font-size: 18px;
+        color: #2b2b2b;
+        letter-spacing: 1px;
+
+        transition: 0.22s ease;
+        z-index: 2;
+
+
+        &:hover{
+            transform:
+                translateY(-2px)
+                rotate(-3deg)
+                scale(1.08);
+        }
+
+        // 이모지 숨겨놓기
+        &::before{
+            position: absolute;
+
+            left: 50%;
+            top: 50%;
+
+            transform:
+                translate(-50%, 12px)
+                scale(0.4);
+
+            opacity: 0;
+
+            transition: 0.28s ease;
+
+            font-size: 15px;
+
+            pointer-events: none;
+        }
+
+        // hover 시 글자 안에서 등장
+        &:hover::before{
+            opacity: 0.22;
+
+            transform:
+                translate(-50%, -50%)
+                scale(1.2);
+        }
+    }
+
+    .private_btn{
+        width: 50px;
+        height: 70px;
+
+        transform: rotate(-7deg);
+
+        &:hover{
+            color: #d94f78;
+        }
+
+        &::before{
+            content: '🔒';
+
+            position: absolute;
+
+            top: -6px;
+            right: -10px;
+
+            font-size: 28px;
+
+            opacity: 0;
+
+            transform:
+                rotate(12deg)
+                scale(0.4);
+
+            transition: 0.25s ease;
+
+            pointer-events: none;
+        }
+
+        &:hover::before{
+            opacity: 0.22;
+
+            transform:
+                rotate(12deg)
+                scale(1);
+        }
+    }
+
+    .share_btn{
+        width: 50px;
+        height: 70px;
+
+        transform: rotate(4deg);
+
+        &:hover{
+            color: #2f8fb5;
+        }
+
+        &::before{
+            content: '✉';
+
+            position: absolute;
+
+            top: -15px;
+            right: -12px;
+
+            font-size: 33px;
+
+            opacity: 0;
+
+            transform:
+                rotate(15deg)
+                scale(0.4);
+
+            transition: 0.25s ease;
+
+            pointer-events: none;
+        }
+
+        &:hover::before{
+            opacity: 0.22;
+
+            transform:
+                rotate(15deg)
+                scale(1);
+        }
+    }
+
+    .open_btn{
+        width: 50px;
+        height: 70px;
+
+        transform: rotate(-3deg);
+
+        &:hover{
+            color: #c59b00;
+        }
+
+        &::before{
+            content: '☀';
+
+            position: absolute;
+
+            top: -15px;
+            right: -10px;
+
+            font-size: 30px;
+
+            opacity: 0;
+
+            transform:
+                rotate(10deg)
+                scale(0.4);
+
+            transition: 0.25s ease;
+
+            pointer-events: none;
+        }
+
+        &:hover::before{
+            opacity: 0.22;
+
+            transform:
+                rotate(10deg)
+                scale(1);
+        }
+    }
+}
+
+
+
+    
+
+    .calen {
+        .react-calendar {
+            width: 340px;
+            padding: 20px;
+            background-color: #fefefe;
+            border: 1px solid rgba(0,0,0,0.08);
+            font-family: 'Griun';
+            font-size: 13.4px;
+            overflow: hidden;
+        }
+
+        .react-calendar__navigation button {
+            font-family: 'Griun';
+            font-weight: bold;
+            font-size: 14px;
+            color: #495057;
+            border-bottom: 1px solid #ffde58;
+        }
+
+        .react-calendar__tile {
+            height: 48px;
+            position: relative;
+            transition: 0.2s;
+
+            border-right: 1px dashed rgba(255, 222, 88, 0.6);
+            border-bottom: 1px dashed rgba(255, 222, 88, 0.6);
+        }
+
+        // 스티커 붙이는 느낌
+        .react-calendar__tile:hover {
+            background: #fff2a1;
+        }
+
+        // 선택된 날짜
+        .react-calendar__tile--active {
+            background-color: #ffffff;
+            color: #495057;
+            font-weight: 600;
+        }
+
+        // 오늘 날짜
+        .react-calendar__tile--now {
+            background-color: #fee12a;
+        }
+
+        // // 이모지 찍기
+        // .react-calendar__tile--active::after {
+        //     content: "✔";
+        //     position: absolute;
+        //     bottom: 2px;
+        //     right: 3px;
+        //     font-size: 20px;
+        //     color: #2b2b2b;
+        // }
+    }
+}
+

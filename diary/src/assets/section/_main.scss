@@ -1,0 +1,88 @@
+
+
+body{
+    background: #ededed;
+}
+
+.container{
+    width: 100%;
+    padding: 0 80px;
+    box-sizing: border-box;
+
+    // 로그인/회원가입 페이지
+    .main_wrap.auth{
+        &::before,
+        &::after {
+         display: none;
+        }
+
+        .contain.auth{
+            background: none;
+            justify-content: center;
+        }
+    }
+    
+    // 로그인/회원가입 페이지 아닌 것들
+    .main_wrap{
+        position: relative;
+        display: flex;
+
+        &::after{
+            content: "";
+            position: absolute;
+
+            top: 25px;
+            left: 40px;
+            right: -20px;
+            bottom: 25px;
+
+            z-index: 0;
+
+            background: #fdf6ea;
+            border-radius: 10px;
+
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08)
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+
+            top: 15px;
+            left: 20px;
+            right: -40px;
+            bottom: 15px;
+
+            z-index: -2;
+
+            background: #cee2f3;
+            border-radius: 10px;
+
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08)
+        }
+
+        .contain{
+            position: relative;
+            display: flex;
+            flex: 1;
+            background: #FAFAFA;
+            
+            margin: 40px 0;
+            
+            z-index: 1;
+
+            background: 
+            repeating-linear-gradient(to right, #e2e2e2 0px, #e2e2e2 1px, transparent 1px, transparent 5px) left 0px top / 15px 100% no-repeat,
+            repeating-linear-gradient(to left, #e2e2e2 0px, #e2e2e2 1px, transparent 1px, transparent 5px) right 0px top / 15px 100% no-repeat,
+            linear-gradient(to right, #f1f1f1 0px, #FAFAFA 17px, #FAFAFA calc(100% - 17px), #f1f1f1 100%);
+
+            
+        }
+        // repeating-linear-gradient : 같은 패턴을 계속 반복하는 그라데이션
+        // #e2e2e2 0px, #e2e2e2 1px, transparent 1px, transparent 5px > 선은 1px인데 0~1px까지 같은 색 유지 / 1px 선 + 4px 간격
+        // left 0px top > 시작 위치
+        // 15px 100% no-repeat > 15px 영역 안에서만 보이게
+    }
+}
+
+

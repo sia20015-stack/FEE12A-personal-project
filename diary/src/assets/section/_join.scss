@@ -1,0 +1,114 @@
+
+
+    .join_wrap{
+        background: #fefefe;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+
+        width: 400px;
+        padding: 30px;
+
+        h2{
+            margin: 10px 0 5px 0;
+            width: 100%;
+
+            text-align: center;
+            font-family: 'Griun';
+            color: #2b2b2b;
+        }
+        .h2_line{
+            display: flex;
+            margin: 5px auto 50px auto;
+            width: 150px;
+            border-top: 3px solid #ffde58;
+        }
+
+        .id_area, .pw_area, .pwck_area, .email_area, .phone_area, 
+        .displayname_area, .birth_area, .gender_area, .button_area{
+            display: flex;
+            margin-bottom: 25px;
+            padding: 0 30px;
+        }
+
+        .id, .pw, .pw_ck, .email, .phone, .displayname, .birth{
+            border: none;
+            outline: none;
+
+            border-bottom: 1px solid #ffde58;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .gender_area{
+            display: flex;
+            align-items: center;
+        }
+        .gender_area label{
+            display: flex;
+            align-items: center;
+            margin-top: 6px;
+            margin-right: 20px;
+            font-family: 'Pretendard';
+	        font-weight: 300;
+            font-size: 14px;
+        }
+
+
+
+        input{
+            font-family: 'Pretendard';
+	        font-weight: 300;
+            font-size: 14px;
+            padding: 10px 10px 9px 5px;
+        }
+
+        .checkbox {
+            position: relative;
+            width: 19px;
+            height: 19px;
+            background-color: #FFE578;
+            border: 1px solid #FFE578;
+            border-radius: 4px;
+            margin: 10px 20px 0 0;
+
+            &::after {
+                content: "✔";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 12px;
+                color: #b72525;
+                opacity: 0;
+                transition: 0.2s;
+            }
+            &.active::after {
+                opacity: 1;
+            }
+        }
+        .gender_area .checkbox {
+            position: relative;
+            width: 17.5px;
+            height: 17.5px;
+            background-color: #FFE578;
+            border: 1px solid #FFE578;
+            border-radius: 4px;
+            margin: 10px 20px 0 0;
+        }
+
+        button{
+            width: 100%;
+            padding: 15px 0;
+            margin-top: 30px;
+
+            font-family: 'Pretendard';
+	        font-weight: 300;
+            font-size: 14px;
+            text-align: center;
+
+            color: #3A3A3F;
+            background-color: #ffde58;
+            border: none;
+            cursor: pointer;
+        }
+    }
+

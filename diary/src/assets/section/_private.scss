@@ -1,0 +1,554 @@
+.private_wrap, .open_wrap, .share_wrap, .shareroom_wrap{
+  height: 920px;
+  width: 1160px;
+  margin: 25px 30px 0 30px;  
+
+  h2{
+    margin-bottom: 30px;
+
+    font-family: 'Griun';
+    font-weight: bold;
+    font-size: 30px;
+    color: #2A2C30;
+  }
+  .h2line{
+    position: relative;
+    display: flex;
+    top: -35px;
+    left: 170px;
+    width: 990px;
+    border-top: 3px solid #ffde58;
+  }
+  .h2line_shareroom{
+    position: relative;
+    display: flex;
+    top: -53px;
+    width: 100%;
+    border-top: 3px solid #ffde58;
+  }
+  .diarynone_2{
+    width: 100%;
+    text-align: center;
+
+    position: relative;
+    top: 348px;
+    
+    font-family: 'pretendard';
+    font-size: 18px;
+    font-weight: bold;
+
+    color: #444;
+  }
+
+  .A_shareroom{
+    display: grid;
+    position: relative;
+    top: -20px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+
+    .post_item {
+      opacity: 0;
+      animation: cardIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      
+
+      &:nth-child(-n+4) { animation-delay: 0s; }
+      &:nth-child(n+5) { animation-delay: 0.07s; }
+    }
+
+    .private_post, .open_post, .shareroom_post {
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 15px;
+      background-color: #fefefe;
+      width: 100%;
+      height: 403px;
+      padding: 17px;
+      box-sizing: border-box;
+
+      cursor: pointer;
+
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+      &:hover{
+        transform: translateY(-6px) scale(1.02);
+        box-shadow:
+          0 10px 25px rgba(0,0,0,0.06),
+          0 4px 10px rgba(0,0,0,0.06);
+        z-index: 10;
+        position: relative;
+      }
+      
+      &:nth-child(-n+4){
+        animation-delay: 0s;
+      }
+      &:nth-child(n+5){
+        animation-delay: 0.07s;
+      }
+
+      .title{
+        font-family: 'Griun';
+        font-size: 18px;
+        font-weight: 600;
+        color: #2A2C30;
+        margin-top: 5px;
+        margin-bottom: 6px;
+      }
+      .h2line2{
+        width: 100%;
+        border-top: 3px solid #ffde58;
+      }
+      .post_thumbnail {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-top: 13px;
+        margin-bottom: 0px;
+      }
+
+      .content {
+        position: relative;
+        box-sizing: border-box;
+
+        height: 80px;
+        margin: 7px 0;
+        padding: 4px 7px;
+
+        border: 1px solid rgba(255, 220, 124, 0.5);
+
+        overflow: hidden;
+
+        font-family: 'Pretendard';
+        font-weight: 400;
+        font-size: 14.5px;
+        color: #3A3A3F;
+        line-height: 1.25;
+        text-align: justify;
+        text-justify: inter-word;
+        z-index: 1;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        word-break: break-all;
+        overflow-wrap: anywhere;
+        white-space: normal;
+
+        
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: -1px;
+          bottom: 0;
+          left: -2px;
+          right: 0;
+
+          background-image:
+            linear-gradient(
+              rgba(255, 220, 124, 0.5) 1px,
+              transparent 1px
+            ),
+            linear-gradient(
+              90deg,
+              rgba(255, 220, 124, 0.5) 1px,
+              transparent 1px
+            );
+
+          background-size: 16px 16px;
+          background-position: 0 0;
+          pointer-events: none;
+          z-index: -1;
+        }
+      }
+
+      .user_info{
+          display: flex;
+          align-items: center;
+          margin-top: 2px;
+          
+      }
+      .id_picture{
+          position: relative;
+          display: inline-block;
+          width: 25px;
+          height: 25px;
+
+          left: -5px;
+
+          background-image: url('/assets/img/기본_프로필.png');
+          background-size: cover;
+          background-position: center;
+
+          margin: 0 3px;
+          border-radius: 50px;
+      }
+      .user_date{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          margin-top: 10px;
+      }
+      .username{
+          font-family: 'Pretendard';
+          font-weight: 300;
+          color: #999;
+          font-size: 13px;    
+      }
+      .post_date{
+          margin: 0;
+          margin-top: 2px;
+          font-family: 'Pretendard';
+          font-weight: 300;
+          font-size: 13px;
+          color: #999;
+      }
+    }
+  }
+}
+
+
+
+.color_wrap{
+  display: flex;
+  gap: 5px;
+    p{
+      display: inline-block;
+      margin: 4.5px 0 0 5px;
+      font-family: 'Pretendard';
+      font-weight: 400;
+      font-size: 14px;
+      color: #036cc2;
+
+    }
+    span{
+      display: inline-block;
+      width: 50px;
+      height: 20px;
+      margin-top: 2px;     
+      border-radius: 5px;
+    }
+}
+
+.B {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .pagination {
+    position: absolute;
+    right: 0;
+    top: 30px; // 라인 기준 위쪽 끝
+
+    display: flex;
+    gap: 6px;
+
+    .arrow_btn1,
+    .arrow_btn2{
+      
+      border: none;
+      background: #ffe45c;
+
+      font-family: 'Griun';
+      
+
+      cursor: pointer;
+
+      transition: 0.2s ease;
+
+      &:hover{
+        transform: translateX(-2px);
+      }
+    }
+
+    
+
+    button {
+      padding: 4px 8px;
+      border: none;
+      background: white;
+      cursor: pointer;
+
+      font-family: 'Griun';
+      font-size: 10px;
+      font-weight: 600;
+      color: #2A2C30;
+
+      &.active {
+        background: #ffde58;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.roomcode{
+  float: right;
+  margin: 0;
+  font-family: 'Pretendard';
+  font-weight: 400;
+  font-size: 15px;
+  color: #999;
+
+  position: relative;
+  top: -20px;
+}
+
+.private_wrap{
+  h2{
+    margin-bottom: 30px;
+
+    font-family: 'Griun';
+    font-weight: bold;
+    font-size: 30px;
+    color: #2A2C30;
+
+    background: linear-gradient(
+    to top,
+    #fff1a8 60%,
+    transparent 40%
+    );
+  }
+}
+.share_wrap, .shareroom_wrap{
+  h2{
+    margin-bottom: 30px;
+
+    font-family: 'Griun';
+    font-weight: bold;
+    font-size: 30px;
+    color: #2A2C30;
+    border-right: 25px solid #FAFAFA;
+
+    background: linear-gradient(
+    to top,
+    #ffd6de 60%,
+    transparent 40%
+    );
+  }
+  .h2_shareroom{
+    background-color: #FAFAFA;
+    margin-bottom: 30px;
+    
+
+    font-family: 'Griun';
+    font-weight: bold;
+    font-size: 30px;
+    color: #2A2C30;
+    background: linear-gradient(
+    to top,
+    #ffd6de 60%,
+    transparent 40%
+    );
+    z-index: 2;
+  }
+}
+.A{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+
+    .post_item {
+      opacity: 0;
+      animation: cardIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      
+
+      &:nth-child(-n+4) { animation-delay: 0s; }
+      &:nth-child(n+5) { animation-delay: 0.07s; }
+    }
+
+    .private_post, .open_post, .shareroom_post {
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 15px;
+      background-color: #fefefe;
+      width: 100%;
+      height: 403px;
+      padding: 17px;
+      box-sizing: border-box;
+
+      cursor: pointer;
+
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+      &:hover{
+        transform: translateY(-6px) scale(1.02);
+        box-shadow:
+          0 10px 25px rgba(0,0,0,0.06),
+          0 4px 10px rgba(0,0,0,0.06);
+        z-index: 10;
+        position: relative;
+      }
+      
+      &:nth-child(-n+4){
+        animation-delay: 0s;
+      }
+      &:nth-child(n+5){
+        animation-delay: 0.07s;
+      }
+
+      .title{
+        font-family: 'Griun';
+        font-size: 18px;
+        font-weight: 600;
+        color: #2A2C30;
+        margin-top: 5px;
+        margin-bottom: 6px;
+      }
+      .h2line2{
+        width: 100%;
+        border-top: 3px solid #ffde58;
+      }
+      .post_thumbnail {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-top: 13px;
+        margin-bottom: 0px;
+      }
+
+      .content {
+        position: relative;
+        box-sizing: border-box;
+
+        height: 80px;
+        margin: 7px 0;
+        padding: 4px 7px;
+
+        border: 1px solid rgba(255, 220, 124, 0.5);
+
+        overflow: hidden;
+
+        font-family: 'Pretendard';
+        font-weight: 400;
+        font-size: 14.5px;
+        color: #3A3A3F;
+        line-height: 1.25;
+        text-align: justify;
+        text-justify: inter-word;
+        z-index: 1;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        word-break: break-all;
+        overflow-wrap: anywhere;
+        white-space: normal;
+
+        
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: -1px;
+          bottom: 0;
+          left: -2px;
+          right: 0;
+
+          background-image:
+            linear-gradient(
+              rgba(255, 220, 124, 0.5) 1px,
+              transparent 1px
+            ),
+            linear-gradient(
+              90deg,
+              rgba(255, 220, 124, 0.5) 1px,
+              transparent 1px
+            );
+
+          background-size: 16px 16px;
+          background-position: 0 0;
+          pointer-events: none;
+          z-index: -1;
+        }
+      }
+
+      .user_info{
+          display: flex;
+          align-items: center;
+          margin-top: 2px;
+          
+      }
+      .id_picture{
+          position: relative;
+          display: inline-block;
+          width: 25px;
+          height: 25px;
+
+          left: -5px;
+
+          background-image: url('/assets/img/기본_프로필.png');
+          background-size: cover;
+          background-position: center;
+
+          margin: 0 3px;
+          border-radius: 50px;
+      }
+      .user_date{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          margin-top: 10px;
+      }
+      .username{
+          font-family: 'Pretendard';
+          font-weight: 300;
+          color: #999;
+          font-size: 13px;    
+      }
+      .post_date{
+          margin: 0;
+          margin-top: 2px;
+          font-family: 'Pretendard';
+          font-weight: 300;
+          font-size: 13px;
+          color: #999;
+      }
+    }
+  }
+
+.open_wrap{
+  h2{
+    margin-bottom: 30px;
+
+    font-family: 'Griun';
+    font-weight: bold;
+    font-size: 30px;
+    color: #2A2C30;
+
+    background: linear-gradient(
+    to top,
+    #d9f4ff 60%,
+    transparent 40%
+    );
+  }
+}
+
+.fake_color{
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  left: 5px;
+  width: 41px;
+  height: 15px;
+  margin-left: 5px;
+  border-radius: 5px;
+}
+
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px); // 초기 위치
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);    // 애니메이션 완료 후 위치 (0으로 리셋)
+  }
+}

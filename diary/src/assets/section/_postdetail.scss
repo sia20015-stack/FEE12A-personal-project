@@ -1,0 +1,271 @@
+.detail_wrap{
+    height: 920px;
+    width: 1160px;
+    margin: 25px 30px 0 30px; 
+
+    // border: 1px solid black;
+    
+    .B{
+        display: flex;
+        gap: 30px;
+
+        h2{
+            margin-bottom: 30px;
+
+            font-family: 'Griun';
+            font-weight: bold;
+            font-size: 30px;
+            color: #2A2C30;
+        }
+        .h2line{
+            flex: 1;
+            height: 3px;
+            background-color: #ffde58;
+            margin-top: 25px;
+        }
+    }
+
+    .detail_date{
+        float: right;
+        margin: 0;
+        font-family: 'Pretendard';
+        font-weight: 400;
+        font-size: 15px;
+        color: #999;
+        position: relative;
+        top: -47px;
+
+
+        margin-top: -13px;
+    }
+
+    .user_info{
+        display: flex;
+        position: relative;
+        
+
+        .id_picture{
+          position: relative;
+          display: inline-block;
+          width: 35px;
+          height: 35px;
+
+          top: 8px;
+
+          background-image: url('/assets/img/기본_프로필.png');
+          background-size: cover;
+          background-position: center;
+
+          border-radius: 50px;
+        }
+        p{
+            margin-left: 13px;
+            font-family: 'Pretendard';
+            font-weight: 400;
+            color: #202022;
+            font-size: 16px;    
+        }
+    }
+    
+
+    .detail_color_wrap{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        gap: 10px;
+        margin-bottom: 10px;
+
+        transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+        opacity: 0;
+        transform: translateY(10px);
+        animation: cardIn 0.4s ease forwards;
+
+        .right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            
+
+            .text{
+                font-family: 'Pretendard';
+                font-weight: 400;
+                color: #036cc2;
+                font-size: 16px;
+
+                margin-left: px;
+                margin-right: 10px;            
+            }
+            .color2{
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 10px 10px;
+                background-color: #fefefe;
+                border: 1px solid rgba(0,0,0,0.08);
+                border-radius: 6px;
+
+                div{
+                    border-radius: 5px;
+                }
+
+                span{
+                    margin-left: 5px;
+                    font-family: 'Pretendard';
+                    font-weight: 400;
+                    font-size: 14px;
+                    color: #202022;
+                }
+            }
+        }
+
+
+        @keyframes cardIn {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+    }
+
+    
+
+    .detail_content{
+        width: 100%;
+        height: 700px;
+        box-sizing: border-box;
+
+        overflow-y: auto;
+
+        padding: 20px;
+        margin-bottom: 21px;
+
+        outline: none;
+
+        font-family: 'Pretendard';
+        font-weight: 300;
+        font-size: 14px;
+        color: #2b2b2b;
+        line-height: 32px;
+
+        background-image:
+        linear-gradient(
+            rgba(255, 216, 88, 0.35) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg, 
+            rgba(230, 210, 180, 0.35) 1px,
+            transparent 1px
+        );
+
+        background-size: 19px 19px;
+
+        border: 1px solid rgba(230, 210, 180, 0.35);
+
+        transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+        opacity: 0;
+        transform: translateY(10px);
+        animation: cardIn 0.7s ease forwards;
+
+        @keyframes cardIn {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        p{
+            line-height: 1.5;
+        }
+    }
+
+    .btn_wrap1{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .button2{
+            width: 100px;
+            padding: 10px 0;
+
+            font-family: 'Pretendard';
+	        font-weight: 400;
+            font-size: 14px;
+            text-align: center;
+
+            text-decoration: none;
+            color: #3A3A3F;
+            background-color: #fefefe;
+            border: 2px solid #ffde58;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        .btn_wrap{
+            position: relative;
+            right: -10px;      
+
+            button{
+                width: 100px;
+                padding: 12px 0;
+                margin-right: 10px;
+
+                font-family: 'Pretendard';
+                font-weight: 400;
+                font-size: 14px;
+                text-align: center;
+
+                color: #3A3A3F;
+                background-color: #ffde58;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+.detail_content p {
+  margin: 0;
+  line-height: 1.8;
+}
+.detail_content p:empty {
+  height: 1em;
+}
+
+
+.spinner {
+    width: 30px;
+    height: 30px;
+    border: 3px solid #eee;
+    border-top: 3px solid #ffde58;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+
+
+
+    
+    
+    
+
+        

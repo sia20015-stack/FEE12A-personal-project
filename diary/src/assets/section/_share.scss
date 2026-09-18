@@ -1,0 +1,314 @@
+.share_wrap{
+  height: 920px;
+  width: 1160px;
+  margin: 25px 30px 0 30px;  
+
+  h2{
+    margin-bottom: 30px;
+
+    font-family: 'Griun';
+    font-weight: bold;
+    font-size: 30px;
+    color: #2A2C30;
+  }
+  .h2line{
+    position: relative;
+    display: flex;
+    top: -35px;
+    left: 170px;
+    width: 990px;
+    border-top: 3px solid #ffde58;
+  }
+  .commentbtn_wrap{
+    display: flex;
+    position: relative;
+    top: -10px;
+    .comment{
+        margin: 0;
+        font-family: 'Pretendard';
+        font-weight: 300;
+        color: #999;
+        font-size: 14px; 
+    }
+    .codebtn_wrap{
+        position: relative;
+        margin-left: auto;
+        top: -7px;
+
+        button{
+            border: none;
+
+            width: 100px;
+            padding: 5px 0;
+            margin-right: 10px;
+
+            font-family: 'Pretendard';
+            font-weight: 400;
+            font-size: 14px;
+            text-align: center;
+
+            color: #3A3A3F;
+            background-color: #ffde58;
+            border: none;
+            cursor: pointer;
+        }
+    }
+  }
+
+  .diarynone{
+    width: 100%;
+    text-align: center;
+
+    position: relative;
+    top: 320px;
+    
+    font-family: 'pretendard';
+    font-size: 18px;
+    font-weight: bold;
+
+    color: #444;
+    }
+
+  .A_share{
+    margin-top: 30px;
+
+    display: flex;
+    flex-direction: column; // 세로로 쌓기
+    gap: 10px;
+
+    position: relative;
+    top: -20px;
+    
+
+    .share_post {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        width: 1100px;
+        height: 87px;
+        padding: 17px 30px;
+
+        border: 1px solid rgba(0,0,0,0.08);
+        border-radius: 15px;
+        background-color: #fefefe;
+
+        cursor: pointer;
+
+        opacity: 0;
+        transform: translateY(20px);
+
+        animation: cardIn 0.5s ease forwards;
+
+        &:hover {
+        transform: translateY(-4px);
+        box-shadow:
+          0 10px 25px rgba(0,0,0,0.06),
+          0 4px 10px rgba(0,0,0,0.06);
+        }
+
+        .title_share{
+            width: 250px;
+            
+            .title_share2{
+                font-family: 'Griun';
+                font-size: 18px;
+                font-weight: 600;
+                color: #2A2C30;
+            }
+        }
+        .divider{
+            font-family: 'Pretendard';
+            font-weight: 300;
+            font-size: 13px;
+            color: #999;
+        }
+        .h2line2_share{
+            height: 100%;
+            border-top: 3px solid #ffde58;
+        }
+        .shareroomcode{
+            width: 110px;
+            margin-right: 13.5px;
+            .shareroomcode2{
+                font-family: 'Pretendard';
+                font-weight: 300;
+                font-size: 14px;
+                color: #999;
+            }
+        }
+
+        .joiner_count{
+            width: 200px;
+            text-align: center;
+            .count1{
+                margin: 0 0 12px 0;
+                margin-bottom: 10px;
+                font-family: 'Pretendard';
+                font-weight: 500;
+                font-size: 14px;
+                color: #3A3A3F;
+            }
+            .count2{
+                margin: 0 auto;
+                font-family: 'Pretendard';
+                font-weight: 500;
+                font-size: 14px;
+                color: #3A3A3F;
+
+                width: 80px;
+                padding: 8px 10px;
+                border-radius: 10px;
+                background-color: #ffde5846;
+                transition: all 0.2s ease;
+
+                &:hover {
+                    background-color: #ffde5879;
+                    transform: translateX(2px);
+                }
+            }
+        }
+
+        .joiner_list {
+            width: 410px;
+            padding-left: 16px;
+
+            text-align: left;
+
+            .joiner {
+                margin: 0 0 12px 0;
+                font-family: 'Pretendard';
+                font-weight: 500;
+                font-size: 14px;
+                color: #3A3A3F;
+
+                display: flex;
+                align-items: center;
+
+                &::before {
+                    content: "";
+                    width: 6px;
+                    height: 6px;
+                    background: #fee12a;
+                    border-radius: 50%;
+                    margin-right: 8px;
+                }
+            }
+
+            .userinfo_share {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+
+                p {
+                    margin: 0;
+                    font-family: 'Pretendard';
+                    font-weight: 500;
+                    font-size: 14px;
+                    color: #4b4b55;
+
+                    padding: 8px 10px;
+                    border-radius: 10px;
+                    background-color: #ffde5846;
+                    transition: all 0.2s ease;
+
+                    &:hover {
+                        background-color: #ffde5879;
+                        transform: translateX(2px);
+                    }
+                }
+            }
+        }
+    }
+    .share_post:nth-child(1) { animation-delay: 0.05s; }
+    .share_post:nth-child(2) { animation-delay: 0.1s; }
+    .share_post:nth-child(3) { animation-delay: 0.15s; }
+    .share_post:nth-child(4) { animation-delay: 0.2s; }
+    .share_post:nth-child(5) { animation-delay: 0.25s; }
+    .share_post:nth-child(6) { animation-delay: 0.3s; }
+    }
+}
+
+
+
+.color_wrap{
+  display: flex;
+  gap: 5px;
+    p{
+      display: inline-block;
+      margin: 4.5px 0 0 5px;
+      font-family: 'Pretendard';
+      font-weight: 400;
+      font-size: 14px;
+      color: #036cc2;
+
+    }
+    span{
+      display: inline-block;
+      width: 50px;
+      height: 20px;
+      margin-top: 2px;     
+      border-radius: 5px;
+    }
+}
+
+.B_share {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .pagination {
+    position: absolute;
+    right: 0;
+    top: 30px; // 라인 기준 위쪽 끝
+
+    display: flex;
+    gap: 6px;
+
+    .arrow_btn1,
+    .arrow_btn2{
+      
+      border: none;
+      background: #ffe45c;
+
+      font-family: 'Griun';
+    
+      cursor: pointer;
+
+      transition: 0.2s ease;
+
+      &:hover{
+        transform: translateX(-2px);
+      }
+    }
+
+    
+    button {
+      padding: 4px 8px;
+      border: none;
+      background: white;
+      cursor: pointer;
+
+      font-family: 'Griun';
+      font-size: 10px;
+      font-weight: 600;
+      color: #2A2C30;
+
+      &.active {
+        background: #ffde58;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px); // 초기 위치
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);    // 애니메이션 완료 후 위치 (0으로 리셋)
+  }
+}

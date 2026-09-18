@@ -1,0 +1,46 @@
+.menubar{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 80px;
+    
+    a{
+        text-decoration-line: none;
+        writing-mode: vertical-rl;
+        font-family: 'Griun';
+        color: #2b2b2b;
+        background-color: #fee12a;
+        padding: 18px 20px 15px 20px;
+        border-radius: 20px 0 0 20px;
+
+        // 홈 화면일 때 기본 active 상태인데, 오른쪽으로 안 튀어나가게 0으로 설정
+        // 눌렀을 때 0.3초 동안 부드럽게 바뀌게 (all: 색, 크기, 위치 등 같은 모든 속성 / ease: 애니메이션 속도가 천천히 > 빠르게 > 천천히)
+        z-index: 10;
+        transform: translateX(0);
+        transition: all 0.3s ease;
+    }
+
+    a:nth-child(1){
+        background-color: #fee12a;
+    }
+    a:nth-child(2){
+        background-color: #FFB6C1;
+    }
+    a:nth-child(3){
+        background-color: #9CD5FF;
+    }
+
+    a.active {
+        filter: brightness(1); // 현재 메뉴 강조
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.08); // 메뉴 뒤에 그림자 넣어주기
+    }
+    
+    a.inactive {
+        filter: brightness(0.85); // 활성화 안된 다른 메뉴 어둡게
+    }
+}
+
+// 버튼 눌렀을 때 살짝 오른쪽으로 툭 튀어 나가게!
+.menubar a.active{
+    transform: translateX(10px);
+}
