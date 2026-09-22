@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Open = () => {
@@ -22,15 +22,10 @@ const Open = () => {
     div.innerHTML = html
     return div.textContent || div.innerText || ''
   }
+  
+ const [username] = useState(localStorage.getItem("username"))
 
-  useEffect(()=>{
-    fetchPosts(0)
-  }, [])
-
-  const [username] = useState(localStorage.getItem("username"))
-
-
-  const fetchPosts = async (pageNum = 0) => {
+  const fetchPosts = useCallback(async (pageNum = 0) => {
     try {
       const res = await axios.get(
         `${process.env.REACT_APP_API_URL}/api/posts/open`,
@@ -50,7 +45,11 @@ const Open = () => {
     } catch (err) {
       console.error(err)
     }
-  }
+  }, [username])
+
+  useEffect(() => {
+    fetchPosts(0)
+  }, [fetchPosts])
 
   const navigate = useNavigate()
 
@@ -121,6 +120,7 @@ const Open = () => {
                       <img
                         className="post_thumbnail"
                         src={`${process.env.REACT_APP_API_URL}${post.thumbnail}`}
+                        alt="게시글 썸네일"
                       />
                     ) : (
                       <div className="post_thumbnail empty" style={{

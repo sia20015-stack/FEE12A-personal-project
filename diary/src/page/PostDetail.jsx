@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
 const PostDetail = () => {
@@ -9,19 +9,20 @@ const PostDetail = () => {
   const navigate = useNavigate()
   const username = localStorage.getItem("username")
 
-
-  useEffect(()=>{
-    fetchPost()
-  }, [])
-
-  const fetchPost = async () => {
-    try{
-      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/posts/${id}`)
+  const fetchPost = useCallback(async () => {
+    try {
+      const res = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/posts/${id}`
+      )
       setPost(res.data)
-    } catch(err){
+    } catch (err) {
       console.error(err)
     }
-  }
+  }, [id])
+
+  useEffect(() => {
+    fetchPost()
+  }, [fetchPost])
 
   const handleDelete = async () =>{
     const ok = window.confirm("정말 글을 삭제하시겠습니까?")

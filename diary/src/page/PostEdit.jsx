@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
 import { EditorContent, useEditor } from '@tiptap/react'
@@ -37,7 +37,7 @@ const PostEdit = () => {
 
     const {type, id} = useParams()
     
-    const [post, setPost] = useState(null)
+    const [, setPost] = useState(null)
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
     const [colors, setColors] = useState(['#000000', '#000000', '#000000'])
@@ -46,12 +46,7 @@ const PostEdit = () => {
     const labels = ['아침', '점심', '저녁']
     
     const navigate = useNavigate()
-
-    useEffect(() => {
-        fetchPost()
-    }, [])
-
-    const fetchPost = async () => {
+    const fetchPost = useCallback(async () => {
         const res = await axios.get(
             `${process.env.REACT_APP_API_URL}/api/posts/${id}`
         )
@@ -63,7 +58,11 @@ const PostEdit = () => {
 
         // 추가
         setThumbnail(res.data.thumbnail)
-    }
+    }, [id])
+
+    useEffect(() => {
+        fetchPost()
+    }, [fetchPost])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -178,6 +177,7 @@ const PostEdit = () => {
                                 <img
                                     src={`${process.env.REACT_APP_API_URL}${thumbnail}`}
                                     className="thumb_preview"
+                                    alt="커버 이미지 미리보기"
                                 />
                             ) : (
                                 <span className="thumb_placeholder">

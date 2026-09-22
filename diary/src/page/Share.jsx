@@ -1,14 +1,11 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import RoomCard from './RoomCard'
 
 const Share = () => {
 
   const [rooms, setRooms] = useState([])
-  const [shareCode, setShareCode] = useState('')
-  const [members, setMembers] = useState([])
-  const [posts, setPosts] = useState([])
 
   const [username] = useState(localStorage.getItem("username"))
 
@@ -22,45 +19,7 @@ const Share = () => {
     startPage + pageGroupSize,
     totalPages
   )
-
-  useEffect(()=>{
-      fetchPosts(0)
-    }, [])
-
-  const fetchPosts = async (pageNum = 0) => {
-    try {
-      const res = await axios.get(
-        `${process.env.REACT_APP_API_URL}/api/posts/share`,
-        {
-          params: {
-            username,
-            page: pageNum,
-            size: 8
-          }
-        }
-      )
-
-      setPosts(res.data.content)
-      setTotalPages(res.data.totalPages)
-      setPage(pageNum)
-
-    } catch (err) {
-      console.error(err)
-    }
-  }
-
-
-  const fetchMembers = async (code) => {
-    try{
-      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/sharecode/members/${code}`)
-      return res.data
-    } catch(err){
-      console.error(err)
-      return []
-    }
-  }
-
-  
+ 
 
   const navigate = useNavigate()
 
@@ -75,35 +34,34 @@ const Share = () => {
         console.error(err)
       }
   }
+  const fetchRooms = useCallback(async (pageNum = 0) => {
+    try {
+      const res = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/sharecode/list`,
+        {
+          params: {
+            username,
+            page: pageNum,
+            size: 6
+          }
+        }
+      )
+
+      const data = res.data
+
+      setRooms(data?.content ?? data ?? [])
+      setTotalPages(data?.totalPages ?? 1)
+      setPage(pageNum)
+
+    } catch (err) {
+      console.error(err)
+      setRooms([])
+    }
+  }, [username])
 
   useEffect(() => {
-  fetchRooms(0)
-}, [])
-
-    const fetchRooms = async (pageNum = 0) => {
-      try {
-        const res = await axios.get(
-          `${process.env.REACT_APP_API_URL}/api/sharecode/list`,
-          {
-            params: {
-              username,
-              page: pageNum,
-              size: 6
-            }
-          }
-        )
-
-        const data = res.data
-
-        setRooms(data?.content ?? data ?? [])
-        setTotalPages(data?.totalPages ?? 1)
-        setPage(pageNum)
-
-      } catch (err) {
-        console.error(err)
-        setRooms([])
-      }
-    }
+    fetchRooms(0)
+  }, [fetchRooms])
 
 
   return (

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Home = () => {
@@ -25,35 +25,37 @@ const Home = () => {
     };
   }, []);
 
-  useEffect(()=>{
-    fetchPosts();
 
-    if (!username){
-      setPrivatePosts([]);
-      setSharePosts([]);
-    }
-  }, [username]);
-
-
-
-
-  const fetchPosts = async () => {
+  const fetchPosts = useCallback(async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/posts/home`, {params: username ? { username } : {}});
+      const res = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/posts/home`,
+        {
+          params: username ? { username } : {}
+        }
+      );
 
       const data = res.data;
 
-      console.log("ALL DATA:", data)
-      
+      console.log("ALL DATA:", data);
 
       setPrivatePosts(data.privatePosts || []);
       setSharePosts(data.sharePosts || []);
       setOpenPosts(data.openPosts || []);
 
-    } catch(err){
-      console.error(err)
+    } catch (err) {
+      console.error(err);
     }
-  }
+  }, [username]);
+
+   useEffect(() => {
+    fetchPosts();
+
+    if (!username) {
+      setPrivatePosts([]);
+      setSharePosts([]);
+    }
+  }, [username, fetchPosts]);
 
   return (
     <>
