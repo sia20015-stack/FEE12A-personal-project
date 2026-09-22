@@ -99,7 +99,7 @@ const Mylog = () => {
     axios.get(`${process.env.REACT_APP_API_URL}/api/posts/mylog`, {params: {year: year, month: month+1, username: username}})
          .then(res => setDiaryData(res.data))
          .catch(err => console.log(err))
-  }, [year, month])
+  }, [year, month, username])
 
   const allPosts = React.useMemo(() => {
     const data = Array.isArray(diaryData) ? diaryData : [];

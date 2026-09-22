@@ -17,7 +17,7 @@ const Menu = () => {
   // isActive : 현재 URL이 이 링크랑 일치하는지
   // isActive가 true면 active, isActive가 false면 inactive
 
-  const [isLogin, setIsLogin] = useState(localStorage.getItem('isLogin') === 'true')
+  const [isLogin] = useState(localStorage.getItem('isLogin') === 'true')
     // localStorage > 브라우저 안에 데이터를 영구적으로 저장해주는 공간 (로그인 및 게시글 등 새로고침이나 브라우저 껐켰해도 유지)
     // localStorage.getItem('isLogin') > 브라우저에 저장된 값 꺼내오기
 

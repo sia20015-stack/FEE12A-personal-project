@@ -1,5 +1,5 @@
 
-import React, { Suspense } from 'react'
+import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Main from './components/section/Main'
 import Home from './page/Home'

@@ -162,6 +162,7 @@ const OpenWrite = () => {
                                 <img
                                     src={`${process.env.REACT_APP_API_URL}${thumbnail}`}
                                     className="thumb_preview"
+                                    alt="커버 이미지 미리보기"
                                 />
                             ) : (
                                 <span className="thumb_placeholder">

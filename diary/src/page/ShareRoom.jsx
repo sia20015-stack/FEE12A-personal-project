@@ -9,9 +9,6 @@ const ShareRoom = () => {
     const alerted = useRef(false)
     const navigate = useNavigate()
 
-    const [loading, setLoading] = useState(true)
-    const [authorized, setAuthorized] = useState(false)
-
     const [posts, setPosts] = useState([])
 
     const [roomInfo, setRoomInfo] = useState(null)
@@ -71,7 +68,6 @@ const ShareRoom = () => {
         `${process.env.REACT_APP_API_URL}/api/sharecode/room/access/${shareCode}?username=${username}`
       )
 
-      setAuthorized(true)
 
       // 방 정보
       const roomRes = await axios.get(
@@ -104,14 +100,12 @@ const ShareRoom = () => {
 
       navigate("/")
 
-    } finally {
-      setLoading(false)
     }
   }
 
   run()
 
-}, [shareCode, username])
+}, [shareCode, username, navigate])
 
 
     
@@ -185,6 +179,7 @@ const ShareRoom = () => {
                         <img
                             className="post_thumbnail"
                             src={`${process.env.REACT_APP_API_URL}${post.thumbnail}`}
+                            alt={post.title}
                         />
                         ) : (
                         <div className="post_thumbnail empty" style={{
