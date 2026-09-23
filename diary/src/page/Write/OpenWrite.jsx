@@ -127,7 +127,7 @@ const OpenWrite = () => {
             const text = editor.getText()
 
             const res = await axios.post(
-                'http://localhost:8000/palette',
+                `${process.env.REACT_APP_AI_URL}/palette`,
                 {
                     content: text
                 }

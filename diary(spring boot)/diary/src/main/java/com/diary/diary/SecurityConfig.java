@@ -23,6 +23,7 @@ public class SecurityConfig {
 
         CorsConfiguration config = new CorsConfiguration();
 
+        config.addAllowedOriginPattern("https://feel2a.vercel.app");
         config.addAllowedOriginPattern("http://localhost:3000");
         config.addAllowedMethod("*");
         config.addAllowedHeader("*");

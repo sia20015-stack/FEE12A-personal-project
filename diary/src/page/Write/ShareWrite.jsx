@@ -136,7 +136,7 @@ const ShareWrite = () => {
             const text = editor.getText()
 
             const res = await axios.post(
-                'http://localhost:8000/palette',
+                `${process.env.REACT_APP_AI_URL}/palette`,
                 {
                     content: text
                 }
@@ -155,9 +155,12 @@ const ShareWrite = () => {
     useEffect(() => {
         if (!username) return
 
-        axios.get(`http://localhost:8083/api/sharecode/myrooms`, {
-            params: { username }
-        })
+        axios.get(
+            `${process.env.REACT_APP_API_URL}/api/sharecode/myrooms`,
+            {
+                params: { username }
+            }
+        )
         .then(res => {
             console.log("RAW RESPONSE:", res.data)
             setRooms(res.data)
