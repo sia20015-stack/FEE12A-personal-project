@@ -12,7 +12,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-@CrossOrigin(origins = "https://feel2a.vercel.app", "http://localhost:3000")
+@CrossOrigin(origins = {
+    "https://feel2a.vercel.app",
+    "http://localhost:3000"
+})
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/sharecode")
