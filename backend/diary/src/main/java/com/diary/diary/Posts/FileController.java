@@ -23,9 +23,11 @@ public class FileController {
     ) throws Exception {
 
         Map uploadResult = cloudinary.uploader().upload(
-                file.getBytes(),
-                ObjectUtils.emptyMap()
-        );
+        file.getBytes(),
+        ObjectUtils.asMap(
+                "folder", "FEE12A"
+        )
+);
 
         String imageUrl = uploadResult.get("secure_url").toString();
 
