@@ -22,7 +22,8 @@ public class Post {
     private Long id;
 
     private String title;
-    private String content;
+    @Column(columnDefinition = "LONGTEXT")
+    private String content; 
 
     @ElementCollection   // List같은 여러 값을 DB에서 따로 관리하기 위한 JPA방식
     private List<String> colors;
