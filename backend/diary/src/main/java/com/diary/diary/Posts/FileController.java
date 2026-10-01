@@ -1,37 +1,34 @@
 package com.diary.diary.Posts;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.util.Map;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/files")
 public class FileController {
 
-    @PostMapping("/upload")
-    public Map<String, String> upload(@RequestParam MultipartFile file) throws Exception {
+    private final Cloudinary cloudinary;
 
-        String uploadDir = System.getProperty("user.dir") + "/uploads/";
-
-        File folder = new File(uploadDir);
-        if (!folder.exists()) folder.mkdirs();
-
-        String fileName = UUID.randomUUID() + "_" + file.getOriginalFilename();
-
-        File saveFile = new File(uploadDir + fileName);
-        file.transferTo(saveFile);
-
-        String url = "/uploads/" + fileName;
-
-        System.out.println("UPLOAD PATH = " + uploadDir);
-        System.out.println("SAVE FILE = " + saveFile.getAbsolutePath());
-
-        return Map.of("url", url);
+    public FileController(Cloudinary cloudinary) {
+        this.cloudinary = cloudinary;
     }
 
+    @PostMapping("/upload")
+    public Map<String, String> upload(
+            @RequestParam("file") MultipartFile file
+    ) throws Exception {
 
+        Map uploadResult = cloudinary.uploader().upload(
+                file.getBytes(),
+                ObjectUtils.emptyMap()
+        );
+
+        String imageUrl = uploadResult.get("secure_url").toString();
+
+        return Map.of("url", imageUrl);
+    }
 }
-
