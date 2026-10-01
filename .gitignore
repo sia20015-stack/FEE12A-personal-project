@@ -36,7 +36,6 @@ uploads/
 *.log
 **/build/
 **/.gradle/
-**/application.properties
 **/application-local.properties
 
 # React
