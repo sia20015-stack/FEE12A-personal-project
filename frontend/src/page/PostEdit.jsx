@@ -175,7 +175,7 @@ const PostEdit = () => {
                         <div className={`thumb_wrapper ${thumbnail ? 'filled' : ''}`}>
                             {thumbnail ? (
                                 <img
-                                    src={`${process.env.REACT_APP_API_URL}${thumbnail}`}
+                                    src={thumbnail}
                                     className="thumb_preview"
                                     alt="커버 이미지 미리보기"
                                 />
@@ -278,8 +278,7 @@ const PostEdit = () => {
                                 )
 
                                 // 서버 이미지 URL
-                                const imageUrl =
-                                    `${process.env.REACT_APP_API_URL}${res.data.url}`
+                                const imageUrl = res.data.url
 
                                 editor
                                     .chain()

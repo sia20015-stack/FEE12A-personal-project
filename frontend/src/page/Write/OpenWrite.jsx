@@ -159,10 +159,10 @@ const OpenWrite = () => {
                     <p>커버 이미지</p>
                     <div className={`thumb_wrapper ${thumbnail ? 'filled' : ''}`}>
                             {thumbnail ? (
-                                <img
-                                    src={`${process.env.REACT_APP_API_URL}${thumbnail}`}
+                                <img 
+                                    src={thumbnail}
                                     className="thumb_preview"
-                                    alt="커버 이미지 미리보기"
+                                    alt="커버 이미지 미리보기" 
                                 />
                             ) : (
                                 <span className="thumb_placeholder">
@@ -265,8 +265,7 @@ const OpenWrite = () => {
                                     )
 
                                     // 서버 이미지 URL
-                                    const imageUrl =
-                                        `${process.env.REACT_APP_API_URL}${res.data.url}`
+                                    const imageUrl = res.data.url
 
                                     editor
                                         .chain()

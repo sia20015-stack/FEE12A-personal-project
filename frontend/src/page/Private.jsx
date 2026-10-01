@@ -133,7 +133,7 @@ const Private = () => {
                     {post.thumbnail ? (
                       <img
                         className="post_thumbnail"
-                        src={`${process.env.REACT_APP_API_URL}${post.thumbnail}`}
+                        src={post.thumbnail}
                         alt="게시글 썸네일"
                       />
                     ) : (
